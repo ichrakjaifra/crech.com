@@ -31,9 +31,9 @@ Route::post('reset/{token}', [AuthController::class, 'PostReset']);
 
 
 
-Route::get('admin/admin/list', function () {
-  return view('admin.admin.list');
-});
+// Route::get('admin/admin/list', function () {
+//   return view('admin.admin.list');
+// });
 
 
 Route::group(['middlwere' => 'admin'], function () {
@@ -41,6 +41,7 @@ Route::group(['middlwere' => 'admin'], function () {
   Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
   Route::get('admin/admin/list', [AdminController::class, 'list']);
   Route::get('admin/admin/add', [AdminController::class, 'add']);
+  Route::post('admin/admin/add', [AdminController::class, 'insert']);
 
   
 });
