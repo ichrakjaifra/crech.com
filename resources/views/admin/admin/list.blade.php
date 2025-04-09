@@ -22,11 +22,69 @@
         </div>
         <!--end::App Content Header-->
         <!--begin::App Content-->
+        
+
         <div class="app-content">
           <!--begin::Container-->
           <div class="container-fluid">
+          <div class="row">
+          <div class="col-md-12">
+                <div class="card mb-4">
+                <div class="card-header">
+                    <h3 class="card-title">Search Admin</h3>
+                  </div>
+                  
+                  <!--begin::Form-->
+                  <form method="get" action="">
+                    <!--begin::Body-->
+                    <div class="card-body">
+                      <div class="row">
+                      <div class="mb-3 col-md-3">
+                        <label class="form-label">Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="{{ Request::get('name') }}"
+                          name="name"
+                          placeholder="Name"
+                        />
+                      </div>
+                      <div class="mb-3 col-md-3">
+                        <label class="form-label">Email</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="{{ Request::get('email') }}"
+                          aria-describedby="emailHelp"
+                          name="email"
+                          placeholder="Email"
+                        />
+                        </div>
+                        <div class="mb-3 col-md-3">
+                        <label class="form-label">Date</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          value="{{ Request::get('date') }}"
+                          name="date"
+                          placeholder="Date"
+                        />
+                        </div>
+                        <div class="mb-3 col-md-3">
+                          <button class="btn btn-primary" type="submit" style="margin-top: 30px;">Search</button>
+                          <a href="{{ url('admin/admin/list') }}" class="btn btn-success" style="margin-top: 30px;">Reset</a>
+                        </div>
+                      </div>
+                      
+                    
+                  </form>
+                  <!--end::Form-->
+                </div>
+                <!--end::Quick Example-->
+                
+              </div>
             <!--begin::Row-->
-            <div class="row">
+            <!-- <div class="row"> -->
 
             @include('_message')
               
@@ -55,7 +113,7 @@
                             <td>{{ $value->id }}</td>
                             <td>{{ $value->name }}</td>
                             <td>{{ $value->email }}</td>
-                            <td>{{ $value->created_at }}</td>
+                            <td>{{ date('d-m-Y H:i A', strtotime($value->created_at)) }}</td>
                             <td>
                               <a href="{{ url('admin/admin/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
                               <a href="{{ url('admin/admin/delete/'.$value->id) }}" class="btn btn-danger">Delete</a>
