@@ -36,7 +36,7 @@
                         <input
                           type="text"
                           class="form-control"
-                          
+                          value="{{ old('name') }}"
                           name="name"
                           required
 
@@ -48,13 +48,14 @@
                         <input
                           type="email"
                           class="form-control"
-                          
+                          value="{{ old('email') }}"
                           aria-describedby="emailHelp"
                           name="email"
                           required
 
                           placeholder="Email"
                         />
+                        <div style="color:red;">{{ $errors->first('email') }}</div>
                       </div>
                       <div class="mb-3">
                         <label class="form-label">Password</label>

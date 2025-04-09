@@ -38,7 +38,7 @@
                           class="form-control"
                           
                           name="name"
-                          value="{{ $getRecord->name }}"
+                          value="{{ old('name', $getRecord->name) }}"
                           required
 
                           placeholder="Name"
@@ -52,11 +52,12 @@
                           
                           aria-describedby="emailHelp"
                           name="email"
-                          value="{{ $getRecord->email }}"
+                          value="{{ old('email', $getRecord->email) }}"
                           required
 
                           placeholder="Email"
                         />
+                        <div style="color:red;">{{ $errors->first('email') }}</div>
                       </div>
                       <div class="mb-3">
                         <label class="form-label">Password</label>
