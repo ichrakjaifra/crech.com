@@ -10,7 +10,7 @@
           <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-              <div class="col-sm-6"><h3 class="mb-0">Admin List</h3></div>
+              <div class="col-sm-6"><h3 class="mb-0">Admin List (Total : {{ $getRecord->total() }})</h3></div>
               <div class="col-sm-6" style="text-align: right;">
                 <a href="{{ url('admin/admin/add') }}" class="btn btn-primary">Add New Admin</a>
               </div>
@@ -64,6 +64,9 @@
                         @endforeach
                       </tbody>
                     </table>
+                    <div style="padding: 10px; float: right;">
+                    {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links('pagination::bootstrap-4') !!}
+                    </div>
                   </div>
                   <!-- /.card-body -->
                 </div>
