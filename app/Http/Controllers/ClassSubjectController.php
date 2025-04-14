@@ -61,7 +61,7 @@ class ClassSubjectController extends Controller
   public function edit($id)
     {
       $getRecord = classSubjectModel::getSingle($id);
-      if(!empty($data['getRecord']))
+      if(!empty($getRecord))
       {
         $data['getRecord'] = $getRecord;
         $data['getAssignSubjectID'] = ClassSubjectModel::getAssignSubjectID($getRecord->class_id);
